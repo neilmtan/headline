@@ -1,10 +1,11 @@
-import React from "react";
+import React, { Component } from "react";
 import styled from "styled-components";
-import { Component } from "react";
+import { TitleView, Container } from "./shared/Shared";
 
 const EditorArea = styled.textarea`
   height: 100%;
-  border-radius: 4px;
+  width: 100%;
+  border-radius: 3px;
   border: none;
   box-shadow: 1px 1px 3px #999;
   font-size: 100%;
@@ -15,15 +16,25 @@ const EditorArea = styled.textarea`
 `;
 
 class Editor extends Component {
+  constructor(props) {
+    super(props);
+
+    this.updateText = this.updateText.bind(this);
+  }
+
+  updateText(e) {
+    this.props.onChange(e);
+  }
+
   render() {
     return (
-      <div>
-        <h1>Hello World!</h1>
-        <EditorArea rows={9}/>
+      <Container>
+        <TitleView>Editor</TitleView>
+        <EditorArea placeholder="Start typing your Headline here!" />
         {/* <textarea className="editorBox"> */}
 
         {/* </textarea> */}
-      </div>
+      </Container>
     );
   }
 }
