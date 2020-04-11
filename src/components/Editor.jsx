@@ -18,19 +18,27 @@ const EditorArea = styled.textarea`
 class Editor extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      hdText: "Start typing your Headline here!"
+    }
 
-    this.updateText = this.updateText.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
   updateText(e) {
     this.props.onChange(e);
+    console.log(e);
+  }
+
+  handleChange(event) {
+    this.setState({hdText: event.target.value});
   }
 
   render() {
     return (
       <Container>
         <TitleView>Editor</TitleView>
-        <EditorArea placeholder="Start typing your Headline here!" onChange={this.updateText}/>
+        <EditorArea placeholder="Start typing your Headline here!" value={this.state.hdText} onChange={this.handleChange}/>
       </Container>
     );
   }
