@@ -33,8 +33,8 @@ class Parent extends Component {
         <Header />
 
         <FlexRow>
-          <Editor onChange={this.onRawTextChange} value={this.state.rawText}/>
-          <Show />
+          <Editor value={this.state.rawText} onChange={this.onRawTextChange} />
+          <Show value={this.state.rawText}/>
         </FlexRow>
       </div>
     );
