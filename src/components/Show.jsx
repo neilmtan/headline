@@ -20,7 +20,10 @@ class Show extends Component {
     return (
       <Container>
         <TitleView>View</TitleView>
-        <ShowArea></ShowArea>
+        <ShowArea>
+          <p>{this.props.value}</p>
+          <p>asdfasd</p>
+        </ShowArea>
       </Container>
     );
   }

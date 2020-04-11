@@ -30,10 +30,7 @@ class Editor extends Component {
     return (
       <Container>
         <TitleView>Editor</TitleView>
-        <EditorArea placeholder="Start typing your Headline here!" />
-        {/* <textarea className="editorBox"> */}
-
-        {/* </textarea> */}
+        <EditorArea placeholder="Start typing your Headline here!" onChange={this.updateText}/>
       </Container>
     );
   }
