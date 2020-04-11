@@ -2,16 +2,17 @@ import React from "react";
 import styled from "styled-components";
 import './Landing.css';
 import { Component } from "react";
+import { Link } from 'react-router-dom';
 
 class Navbar extends Component {
     render() {
         return (
             <div className="navbar">
                 <ul className="navbar-cont">
-                    <li className="navbar-item"><a>Headline</a></li>
-                    <li className="navbar-item active"><a>Home</a></li>
-                    <li className="navbar-item"><a>About</a></li>
-                    <li className="navbar-item"><a>Editor</a></li>
+                    <li className="navbar-item"><Link to="/">Headline</Link></li>
+                    <li className="navbar-item active"><Link to="/">Home</Link></li>
+                    <li className="navbar-item"><Link to="/">About</Link></li>
+                    <li className="navbar-item"><Link to="/editor">Editor</Link></li>
                 </ul>
             </div>
         );
@@ -24,7 +25,7 @@ class Header extends Component {
             <div className="header">
                 <div className="header-text-cont">
                     <div className="header-text">
-                        <h1 className="header-title">Headline</h1>
+                        <h1 className="header-title">Make a website without code, in seconds</h1>
                         <p className="header-subtitle">A new Markdown-like syntax that produces clean, responsive websites in HTML and CSS.</p>
                     </div>
                 </div>
