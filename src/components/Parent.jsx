@@ -8,6 +8,7 @@ import styled from "styled-components";
 import Header from "./Header";
 import SplitPane from "react-split-pane";
 
+
 import "./styles/split.css";
 
 class Parent extends Component {

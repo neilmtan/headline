@@ -7,6 +7,11 @@ body {
     width: 100%;
 }
 
+.title-cont {
+    text-decoration: none;
+    color: black;
+}
+
 .title {
     background-color: #b4b4b4;
     margin: 0;
