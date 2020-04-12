@@ -62,6 +62,7 @@ class Show extends Component {
         parts.splice(e,1);
       }
     }
+    let parts = this.props.value.replace(/\n/g, " ").split(" ");
     for (let i = 0; i < parts.length; i++) {
       tempObject = {}
       tempString = "";

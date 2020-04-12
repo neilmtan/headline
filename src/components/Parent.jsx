@@ -34,7 +34,7 @@ class Parent extends Component {
         <Header />
         {/* <EditCont> */}
           <FlexRow>
-            <SplitPane split="vertical" defaultSize={700} minSize={400}>
+            <SplitPane split="vertical" defaultSize={400} minSize={350}>
               <div>
                 <Editor value={this.state.hdText} onChange={this.onHDChange} />
               </div>
