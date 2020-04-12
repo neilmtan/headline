@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import { TitleView, Container } from "./shared/Shared";
+import { MentionsInput, Mention } from "react-mentions";
+import "./styles/Parent.css";
 
 const EditorArea = styled.textarea`
   height: 100%;
@@ -16,13 +18,35 @@ const EditorArea = styled.textarea`
   outline: none;
 `;
 
+const BlockTypes = [
+  {
+    id: "header",
+    display: "# Header\n",
+  },
+  {
+    id: "subheader",
+    display: "# Subheader\n",
+  },
+];
+
+// const PropertyTypes = [
+//   {
+//     id: "title",
+//     display: "[title] ",
+//   },
+//   {
+//     id: "subtitle",
+//     display: "[subtitle] ",
+//   },
+//   {
+//     id: "image",
+//     display: "[image] ",
+//   },
+// ];
+
 class Editor extends Component {
   constructor(props) {
     super(props);
-    // this.state = {
-    //   hdText: "",
-    // }
-
     this.handleChange = this.handleChange.bind(this);
   }
 
@@ -33,14 +57,31 @@ class Editor extends Component {
   render() {
     return (
       <Container>
-        
-          <TitleView  className="mini-title">Editor</TitleView>
-          <EditorArea
+        <TitleView className="mini-title">Editor</TitleView>
+        {/* <EditorArea
             placeholder="Start typing your Headline here!"
             value={this.props.value}
             onChange={this.handleChange}
+          /> */}
+
+        <MentionsInput
+          className="EditorArea"
+          value={this.props.value}
+          onChange={this.handleChange}
+          placeholder="Start typing your Headline here!"        
+          allowSpaceInQuery="true"
+        >
+          <Mention
+            trigger="#"
+            data={BlockTypes}
+            // renderSuggestion={this.renderUserSuggestion}
           />
-        
+          {/* <Mention
+            trigger="["
+            data={PropertyTypes}
+            // renderSuggestion={this.renderTagSuggestion}
+          /> */}
+        </MentionsInput>
       </Container>
     );
   }
