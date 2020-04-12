@@ -57,6 +57,7 @@ class Show extends Component {
     }
     let tempString = "";
     let parts = this.props.value.replace(/\n/g, " ").replace(/^\s+|\s+$|\s+(?=\s)/g, "").split(" ");
+    
     for (let i = 0; i < parts.length; i++) {
       tempObject = {}
       tempString = "";
