@@ -1,5 +1,4 @@
 import React from "react";
-import styled from "styled-components";
 import './Landing.css';
 import { Component } from "react";
 import { Link } from 'react-router-dom';
@@ -11,7 +10,7 @@ class Navbar extends Component {
                 <ul className="navbar-cont">
                     <li className="navbar-item"><Link to="/">Headline</Link></li>
                     <li className="navbar-item active"><Link to="/">Home</Link></li>
-                    <li className="navbar-item"><Link to="/">About</Link></li>
+                    <li className="navbar-item"><Link to="/parser">Parser</Link></li>
                     <li className="navbar-item"><Link to="/editor">Editor</Link></li>
                 </ul>
             </div>

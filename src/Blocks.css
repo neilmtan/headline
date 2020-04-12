@@ -1,0 +1,236 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: Lato, Arial;
+}
+
+.whole {
+    margin: 0;
+}
+
+
+
+/*Navbar*/
+.navbar-cont {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    top: 0;
+    width: 100%;
+}
+  
+.navbar-item {
+    float: left;
+}
+ 
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 1vw;
+}
+  
+li a:hover:not(.active) {
+    background-color: #111;
+}
+  
+.active {
+   text-decoration: underline;
+}
+
+li:first-child {
+    padding-left: 15%;
+}
+
+li:last-child {
+    padding-right: 15%;
+}
+
+
+
+/*Header*/
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5% 15%;
+    background-color: #eeeeee;
+}
+
+.header-text-cont {
+    flex-grow: 1;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.header-image-cont {
+    flex-grow: 1;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 0 10vh;
+}
+
+.header-image {
+    width: 30vw;
+}
+
+.header-text {
+    padding: 0 10vh;
+}
+
+.header-title {
+    font-size: 3vw;
+    margin: 0;
+}
+
+.header-subtitle {
+    font-size: 1vw;
+    line-height: 175%;
+}
+
+
+
+/*Subheader Split*/
+.subheader {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 5% 15%;
+    background-color: #ffffff;
+}
+
+.subheader-text-cont {
+    flex-grow: 1;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.subheader-image-cont {
+    flex-grow: 1;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 0 10vh;
+}
+
+.subheader-image {
+    width: 30vw;
+}
+
+.subheader-text {
+    padding: 0 10vh;
+}
+
+.subheader-title {
+    font-size: 2vw;
+    margin: 0;
+}
+
+.subheader-subtitle {
+    font-size: 1vw;
+    line-height: 175%;
+}
+
+
+
+
+
+/*Restyle components for laptops and desktops*/
+@media only screen and (max-width: 1200px) {
+    li:first-child, li:last-child{
+        padding: 0;
+    }
+    .header, .subheader {
+        padding: 5% 0%;
+    }
+}
+
+
+/*Restyle components for landscape tablets and small laptops*/
+@media only screen and (max-width: 992px) {
+    .header-title {
+        font-size: 5vw;
+        margin: 0;
+    }
+    
+    .header-subtitle {
+        font-size: 2vw;
+        line-height: 175%;
+    }
+
+    .subheader-title {
+        font-size: 3vw;
+        margin: 0;
+    }
+    
+    .subheader-subtitle {
+        font-size: 2vw;
+        line-height: 175%;
+    }
+
+    li a {
+        font-size: 2vw;
+    }
+}
+
+/*Restyle components for portrait tablets and large phones*/
+@media only screen and (max-width: 768px) {
+
+}
+
+/*Restyle components for phones*/
+@media only screen and (max-width: 600px) {
+    .header {
+        display: block;
+    }
+
+    .subheader {
+        display: block;
+    }
+
+    .header-title {
+        font-size: 10vw;
+        margin: 0;
+    }
+    
+    .header-subtitle {
+        font-size: 5vw;
+        line-height: 175%;
+    }
+
+    .subheader-title {
+        font-size: 8vw;
+        margin: 0;
+    }
+    
+    .subheader-subtitle {
+        font-size: 5vw;
+        line-height: 175%;
+    }
+
+    .header-image {
+        width: 100%;
+        padding: 20px 0;
+    }
+
+    .subheader-image {
+        width: 100%;
+        padding: 30px 0;
+    }
+
+    .header-text-cont {
+        padding: 30px 0;
+    }
+
+    .subheader-text-cont {
+        padding: 30px 0;
+    }
+
+    li a {
+        font-size: 5vw;
+    }
+
+}
