@@ -40,15 +40,3 @@ The following displays a `subheader` with an image on the right.
     [title] I am a title.
     [subtitle] I am a title.
     [image] http://www.google.com/img
-
-Simply place `[image]` before the `[title]` property to place the image on the left.
-
-    # Subheader
-    [title] I am a title.
-    [subtitle] I am a title.
-    [image] http://www.google.com/img
-
-#### Image
-
-    # Image
-    [image] http://www.google.com/img
