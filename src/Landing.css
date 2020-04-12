@@ -48,9 +48,8 @@ li:first-child {
 
 li:last-child {
     padding-right: 15%;
+    float: right;
 }
-
-
 
 /*Header*/
 .header {
