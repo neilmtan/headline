@@ -170,6 +170,9 @@ class Show extends Component {
           </div>
         </TitleNav>
         <ShowArea className="show-area">
+          <table>
+            <tr>
+              <td>
           {
             this.state.display.map(
               (disp, index) =>
@@ -179,6 +182,9 @@ class Show extends Component {
                 <Subheader key={index} title={disp.tempTitle} subtitle={disp.tempSubtitle} image={disp.tempImage} />
             )
           }
+          </td>
+            </tr>
+          </table>
         </ShowArea>
       </Container>
     );
