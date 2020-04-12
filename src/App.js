@@ -12,7 +12,7 @@ function App() {
       <BrowserRouter>
         <Switch>
           <Route exact path="/" component={Landing}/>
-          <Route exact path="/editor" component={Editor}/>
+          {/* <Route exact path="/editor" component={Editor}/> */}
           <Route exact path="/parser" component={Parser}/>
         </Switch>
       </BrowserRouter>
