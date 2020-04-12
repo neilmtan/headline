@@ -9,115 +9,131 @@ class Parser extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            text: "# Header [title] Family... [subtitle] pop... [image] https://mango-finance.now.sh/static/media/HeaderLand.b7f38f84.png # Header [title] Family... [subtitle] Stop... [image] https://mango-finance.now.sh/static/media/HeaderLand.b7f38f84.png",
+            text: "# Header [title] Family finances made simple. [subtitle] Stop wasting time with messy spreadsheets and quickly get the insights you need. [image] https://mango-finance.now.sh/static/media/HeaderLand.b7f38f84.png # Subheader [title] Family finances made simple. [subtitle] Stop wasting time with messy spreadsheets and quickly get the insights you need. [image] https://mango-finance.now.sh/static/media/HeaderLand.b7f38f84.png # Subheader [title] Whamily... [subtitle] Stop... ",
             display: []
         }
     }
 
-    // componentDidMount() {
-    //     console.log("Component mounted!");
-    //     let parts = this.state.text.split(" ");
-    //     let tempString = "";
-    //     for (let i = 0; i < parts.length; i++) {
-
-    //         console.log("Current partition is: " + parts[i]);
-
-    //         if (parts[i] == "#") {
-    //             i++;
-    //             console.log("Block found!");
-
-    //             if(parts[i] == "Header"){
-    //                 console.log("Block type is Header!");
-    //                 i++;
-    //                 return <makeHeader/>;
-    //                 if(parts[i] == "[title]"){
-    //                     i++;
-    //                     console.log("Title is " + parts[i]);
-    //                     this.state.navbar.push(parts[i]);
-    //                     i++;
-    //                 } else {
-    //                     this.state.navbar.push("");
-    //                     console.log("Pushed null...");
-    //                 }
-    //             }
-
-
-
-
-    //         }
-    //     }
-    // }
-
     render() {
-        let tempType = "";
-        let tempTitle = "";
-        let tempSubtitle = "";
-        let tempImage = "";
+
         let tempObject = {
             tempType: "",
             tempTitle: "",
             tempSubtitle: "",
             tempImage: "",
         }
+        
         let tempString = "";
-        console.log("Component mounted!");
+        let move = 0;
+
         let parts = this.state.text.split(" ");
         for (let i = 0; i < parts.length; i++) {
-            console.log("Current partition is: " + parts[i]);
+            tempObject = {}
+            tempString = "";
             if (parts[i] == "#") {
                 i++;
-                console.log("Block found!");
                 if (parts[i] == "Header") {
-                    console.log("Block type is Header!");
-                    tempType = "header";
                     i++;
+                    tempObject.tempType = "Header"
                     if (parts[i] == "[title]") {
                         i++;
-                        console.log("Title is " + parts[i]);
-                        tempTitle = parts[i];
-                        i++;
+                        while (true){
+                            if(parts[i][0] == "#" || parts[i][0] == "[" || parts[i][0] == undefined){
+                                tempObject.tempTitle = tempString;
+                                tempString = "";
+                                break;
+                            } else {
+                                tempString += parts[i] + " ";
+                                i++;
+                            }
+                        }
                     } else {
-                        console.log("Pushed title as null...");
+                        tempObject.tempTitle = "";
                     }
                     if (parts[i] == "[subtitle]") {
                         i++;
-                        console.log("Subtitle is " + parts[i]);
-                        tempSubtitle = parts[i];
-                        i++;
+                        while (true){
+                            if(parts[i][0] == "#" || parts[i][0] == "[" || parts[i][0] == undefined){
+                                tempObject.tempSubtitle = tempString;
+                                tempString = "";
+                                break;
+                            } else {
+                                tempString += parts[i] + " ";
+                                i++;
+                            }
+                        }
                     } else {
-                        console.log("Pushed subtitle as null...");
+                        tempObject.tempSubtitle = "";
                     }
                     if (parts[i] == "[image]") {
                         i++;
-                        console.log("Image URL is " + parts[i]);
-                        tempImage = parts[i];
+                        tempObject.tempImage = parts[i];
                     } else {
-                        console.log("Pushed subtitle as null...");
+                        tempObject.tempImage = "";
                     }
-                    tempObject.tempTitle = tempType;
-                    tempObject.tempTitle = tempTitle;
-                    tempObject.tempSubtitle = tempSubtitle;
-                    tempObject.tempImage = tempImage;
-                    this.state.display.push(tempObject);
+                }
+                if (parts[i] == "Subheader") {
+                    i++;
+                    tempObject.tempType = "Subheader"
+                    if (parts[i] == "[title]") {
+                        i++;
+                        while (true){
+                            if(parts[i][0] == "#" || parts[i][0] == "[" || parts[i][0] == undefined){
+                                tempObject.tempTitle = tempString;
+                                tempString = "";
+                                break;
+                            } else {
+                                tempString += parts[i] + " ";
+                                i++;
+                            }
+                        }
+                    } else {
+                        tempObject.tempTitle = "";
+                    }
+                    if (parts[i] == "[subtitle]") {
+                        i++;
+                        while (true){
+                             if(parts[i][0] == "#" || parts[i][0] == "[" || parts[i][0] == undefined){
+                                tempObject.tempSubtitle = tempString;
+                                tempString = "";
+                                break;
+                            } else {
+                                tempString += parts[i] + " ";
+                                i++;
+                            }
+                        }
+                    } else {
+                        tempObject.tempSubtitle = "";
+                    }
+                    if (parts[i] == "[image]") {
+                        i++;
+                        tempObject.tempImage = parts[i];
+                    } else {
+                        tempObject.tempImage = "";
+                    }
                 }
 
-
-
-
+                this.state.display.push(tempObject);
             }
-            console.log("finding next block...");
         }
-        console.log(this.state.display);
+
+
         return (
             <div>
                 {
                     this.state.display.map(
-                        (disp, index) => <Header key={index} title={disp.tempTitle} subtitle={disp.tempSubtitle} image={disp.tempImage} />
+                        (disp, index) => 
+                        disp.tempType == "Header" &&
+                            <Header key={index} title={disp.tempTitle} subtitle={disp.tempSubtitle} image={disp.tempImage} /> || 
+                        disp.tempType == "Subheader" &&
+                            <Subheader key={index} title={disp.tempTitle} subtitle={disp.tempSubtitle} image={disp.tempImage} />
+                          
+
+
+
+                        
                     )
                 }
-                {/* <Header title="hi"/>
-                <Header title="hi"/> */}
-
             </div>
         );
     }

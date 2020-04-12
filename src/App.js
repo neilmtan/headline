@@ -11,7 +11,7 @@ function App() {
         <Switch>
           <Route exact path="/" component={Landing}/>
           <Route exact path="/editor" component={Parent}/>
-          {/* <Route exact path="/parser" component={Parser}/> */}
+          <Route exact path="/parser" component={Parser}/>
         </Switch>
       </BrowserRouter>
     </div>
