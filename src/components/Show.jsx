@@ -56,7 +56,7 @@ class Show extends Component {
       tempImage: "",
     }
     let tempString = "";
-    let parts = this.props.value.replace(/\n/g, " ").split(" ");
+    let parts = this.props.value.replace(/\n/g, " ").replace(/^\s+|\s+$|\s+(?=\s)/g, "").split(" ");
     for (let i = 0; i < parts.length; i++) {
       tempObject = {}
       tempString = "";
@@ -154,7 +154,7 @@ class Show extends Component {
             tempObject.tempImage = "";
           }
         }
-
+        console.log(parts);
         this.state.display.push(tempObject);
       }
     }
@@ -165,7 +165,7 @@ class Show extends Component {
           <TitleView>View</TitleView>
           <button onClick={this.downloadFile}>Download</button>
         </TitleNav>
-        <ShowArea>
+        <ShowArea id="input">
           {
             this.state.display.map(
               (disp, index) =>
