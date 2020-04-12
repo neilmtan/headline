@@ -56,13 +56,13 @@ class Show extends Component {
       tempImage: "",
     }
     let tempString = "";
-    let parts = this.props.value.split(" ");
+    let parts = this.props.value.replace(/\n/g, " ").split(" ");
     for(let e = 0; e < parts.length; e++){
-      if(parts[e] = ""){
+      if(parts[e] == ""){
         parts.splice(e,1);
       }
     }
-    let parts = this.props.value.replace(/\n/g, " ").split(" ");
+    console.log(parts);
     for (let i = 0; i < parts.length; i++) {
       tempObject = {}
       tempString = "";
