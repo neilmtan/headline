@@ -34,7 +34,7 @@ class Show extends Component {
         <TitleView>View</TitleView>
         <button onClick={this.downloadFile}>Download</button>
         <ShowArea>
-          <p id="input">{this.props.value}</p>
+          <iframe height="100%" width="100%" src="https://headline1.netlify.com/parser"></iframe>
         </ShowArea>
       </Container>
     );
