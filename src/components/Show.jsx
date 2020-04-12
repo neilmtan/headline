@@ -42,9 +42,20 @@ class Show extends Component {
     // element.href = URL.createObjectURL(file);
     element.href =
       "data:text/html," + document.getElementById("content").innerHTML;
-    element.download = "myFile.html";
+    element.download = "myHeadline.html";
     document.body.appendChild(element);
     element.click();
+
+    const element2 = document.createElement("a");
+    const file = new Blob([document.getElementById("styling").textContent], {
+      type: "text/css",
+    });
+    element2.href = URL.createObjectURL(file);
+    // // element2.href =
+    // //   "data:text/css," + document.getElementById("styling").innerText;
+    element2.download = "myHeadline.css";
+    document.body.appendChild(element2);
+    element2.click();
   };
 
   render() {
@@ -164,6 +175,7 @@ class Show extends Component {
       }
     }
 
+    const styleGuy = "body,html{margin:0;padding:0;font-family:Inter,sans-serif}.whole{margin:0;height:100%;width:100%}.navbar-cont{list-style-type:none;margin:0;padding:0;overflow:hidden;background-color:#333;top:0;width:100%}.navbar-item{float:left}li a{display:block;color:#fff;text-align:center;padding:14px 16px;text-decoration:none;font-size:1vw}li a:hover:not(.active){background-color:#111}.active{text-decoration:underline}li:first-child{padding-left:15%}li:last-child{padding-right:15%}.header{display:flex;justify-content:space-between;align-items:center;padding:5% 15%;background-color:#eee}.header-text-cont{flex-grow:1;display:flex;justify-content:space-evenly}.header-image-cont{flex-grow:1;display:flex;justify-content:space-evenly;padding:0 10vh}.header-image{width:30vw}.header-text{padding:0 10vh}.header-title{font-size:3vw;margin:0}.header-subtitle{font-size:1vw;line-height:175%}.subheader{display:flex;justify-content:space-evenly;align-items:center;padding:5% 15%;background-color:#fff}.subheader-text-cont{flex-grow:1;display:flex;justify-content:space-evenly}.subheader-image-cont{flex-grow:1;display:flex;justify-content:space-evenly;padding:0 10vh}.subheader-image{width:30vw}.subheader-text{padding:0 10vh}.subheader-title{font-size:2vw;margin:0}.subheader-subtitle{font-size:1vw;line-height:175%}@media only screen and (max-width:1200px){li:first-child,li:last-child{padding:0}.header,.subheader{padding:5% 0}}@media only screen and (max-width:992px){.header-title{font-size:5vw;margin:0}.header-subtitle{font-size:2vw;line-height:175%}.subheader-title{font-size:3vw;margin:0}.subheader-subtitle{font-size:2vw;line-height:175%}li a{font-size:2vw}}@media only screen and (max-width:600px){.header{display:block}.subheader{display:block}.header-title{font-size:10vw;margin:0}.header-subtitle{font-size:5vw;line-height:175%}.subheader-title{font-size:8vw;margin:0}.subheader-subtitle{font-size:5vw;line-height:175%}.header-image{width:100%;padding:20px 0}.subheader-image{width:100%;padding:30px 0}.header-text-cont{padding:30px 0}.subheader-text-cont{padding:30px 0}li a{font-size:5vw}}";
     return (
       <Container>
         <TitleNav className="mini-cont">
@@ -176,7 +188,7 @@ class Show extends Component {
               ></img>
             </button>
           </div>
-          <div id="styling">BLEHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH</div>
+          <div id="styling">{styleGuy}</div>
         </TitleNav>
         <ShowArea className="show-area" id="content">
           {this.state.display.map(
