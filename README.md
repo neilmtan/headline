@@ -1,4 +1,4 @@
-# Headline
+# Headline: A new markup language for building responsive websites in minutes
 CSS bugs are frustrating, Webflow has more buttons than my TV remote,  and Wordpress still sucks. Headline was built for people that want websites now. No code, no drag-and-drop. Just type your copy into our in-browser editor and have a fully responsive landing page up in minutes.
 
 ## Thinking in Headline
