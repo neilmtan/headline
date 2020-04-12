@@ -14,7 +14,7 @@ class Parent extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      hdText: "",
+      hdText: "# Header\n[title] Hello world!\n[subtitle] I love Pioneer!\n[image] https://miro.medium.com/proxy/1*xUwh4LT0F450udGz1pgpvA.jpeg",
     };
 
     this.onHDChange = this.onHDChange.bind(this);
