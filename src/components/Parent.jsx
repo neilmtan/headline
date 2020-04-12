@@ -25,6 +25,7 @@ class Parent extends Component {
     this.setState({
       rawText: text
     });
+    console.log(this.state.rawText);
   }
 
   render() {
