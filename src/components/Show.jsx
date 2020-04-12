@@ -13,22 +13,33 @@ const ShowArea = styled.div`
   padding: 8px 16px;
   resize: none;
   overflow: auto;
+  white-space: pre-wrap;
 `;
 
 class Show extends Component {
+  downloadFile = () => {
+    const element = document.createElement("a");
+    const file = new Blob([document.getElementById("input").textContent], {
+      type: "text/html",
+    });
+    element.href = URL.createObjectURL(file);
+    element.download = "myFile.html";
+    document.body.appendChild(element);
+    element.click();
+  };
+
   render() {
     return (
       <Container>
         <TitleView>View</TitleView>
+        <button onClick={this.downloadFile}>Download</button>
         <ShowArea>
-          {/* <p>{this.props.value}</p> */}
-          <p>asdfasd</p>
+          <p id="input">{this.props.value}</p>
         </ShowArea>
       </Container>
     );
   }
 }
-
 
 // function tryConvert(temperature, convert) {
 //   const input = parseFloat(temperature);
@@ -101,7 +112,5 @@ class Show extends Component {
 //     );
 //   }
 // }
-
-
 
 export default Show;

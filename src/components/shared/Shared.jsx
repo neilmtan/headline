@@ -12,6 +12,6 @@ export const TitleView = styled.h1`
 
 export const Container = styled.div`
   height: 70vh;
-  margin: 2em;
-  width: 50%;
+  /* margin: 2em; */
+  width: 90%;
 `

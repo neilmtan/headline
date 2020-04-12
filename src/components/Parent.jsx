@@ -5,27 +5,27 @@ import Show from "./Show";
 import Editor from "./Editor";
 import styled from "styled-components";
 import Header from "./Header";
+import SplitPane from "react-split-pane";
 
-const Container = styled.div`
-  width: 100%;
-  height: 100vh;
-`;
+import "./styles/split.css";
+
 
 class Parent extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      rawText: "",
-    }
+      hdText: "",
+    };
 
-    this.onRawTextChange = this.onRawTextChange.bind(this);
+    this.onHDChange = this.onHDChange.bind(this);
   }
 
-  onRawTextChange(text) {
+  onHDChange(text) {
+    text.persist();
     this.setState({
-      rawText: text
+      hdText: text.target.value,
     });
-    console.log(this.state.rawText);
+    console.log(this.state.hdText);
   }
 
   render() {
@@ -34,8 +34,14 @@ class Parent extends Component {
         <Header />
 
         <FlexRow>
-          <Editor value={this.state.rawText} onChange={this.onRawTextChange} />
-          <Show value={this.state.rawText}/>
+          <SplitPane split="vertical" defaultSize={700}>
+            <div>
+              <Editor value={this.state.hdText} onChange={this.onHDChange} />
+            </div>
+            <div>
+              <Show value={this.state.hdText} />
+            </div>
+          </SplitPane>
         </FlexRow>
       </div>
     );

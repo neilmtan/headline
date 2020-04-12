@@ -13,32 +13,34 @@ const EditorArea = styled.textarea`
   padding: 8px 16px;
   resize: none;
   overflow: auto;
+  outline: none;
 `;
 
 class Editor extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      hdText: "Start typing your Headline here!"
-    }
+    // this.state = {
+    //   hdText: "",
+    // }
 
     this.handleChange = this.handleChange.bind(this);
   }
 
-  updateText(e) {
+  handleChange(e) {
     this.props.onChange(e);
-    console.log(e);
-  }
-
-  handleChange(event) {
-    this.setState({hdText: event.target.value});
   }
 
   render() {
     return (
       <Container>
-        <TitleView>Editor</TitleView>
-        <EditorArea placeholder="Start typing your Headline here!" value={this.state.hdText} onChange={this.handleChange}/>
+        
+          <TitleView>Editor</TitleView>
+          <EditorArea
+            placeholder="Start typing your Headline here!"
+            value={this.props.value}
+            onChange={this.handleChange}
+          />
+        
       </Container>
     );
   }
