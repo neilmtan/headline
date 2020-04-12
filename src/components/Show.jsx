@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import { TitleView, Container } from "./shared/Shared";
+import '../Landing.css';
+import Navbar from "../blocks/Navbar.jsx";
+import Header from "../blocks/Header.jsx";
+import Subheader from "../blocks/Subheader.jsx";
 
 const ShowArea = styled.div`
   height: 100%;
@@ -17,6 +21,14 @@ const ShowArea = styled.div`
 `;
 
 class Show extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      display: [],
+    }
+  }
+
+
   downloadFile = () => {
     const element = document.createElement("a");
     const file = new Blob([document.getElementById("input").textContent], {
@@ -28,13 +40,134 @@ class Show extends Component {
     element.click();
   };
 
+
+
   render() {
+    this.state.display = [];
+    let tempObject = {
+      tempType: "",
+      tempTitle: "",
+      tempSubtitle: "",
+      tempImage: "",
+    }
+    let tempString = "";
+    let parts = this.props.value.split(" ");
+    for (let i = 0; i < parts.length; i++) {
+      tempObject = {}
+      tempString = "";
+      if (parts[i] == "#") {
+        i++;
+        if (parts[i] == "Header") {
+          i++;
+          tempObject.tempType = "Header"
+          if (parts[i] == "[title]") {
+            i++;
+            while (true) {
+              if (i >= parts.length) {
+                break;
+              }
+              if (parts[i][0] == "#" || parts[i][0] == "[") {
+                tempObject.tempTitle = tempString;
+                tempString = "";
+                break;
+              } else {
+                tempString += parts[i] + " ";
+                i++;
+              }
+            }
+          } else {
+            tempObject.tempTitle = "";
+          }
+          if (parts[i] == "[subtitle]") {
+            i++;
+            while (true) {
+              if (i >= parts.length) {
+                break;
+              }
+              if (parts[i][0] == "#" || parts[i][0] == "[") {
+                tempObject.tempSubtitle = tempString;
+                tempString = "";
+                break;
+              } else {
+                tempString += parts[i] + " ";
+                i++;
+              }
+            }
+          } else {
+            tempObject.tempSubtitle = "";
+          }
+          if (parts[i] == "[image]") {
+            i++;
+            tempObject.tempImage = parts[i];
+          } else {
+            tempObject.tempImage = "";
+          }
+        }
+        if (parts[i] == "Subheader") {
+          i++;
+          tempObject.tempType = "Subheader"
+          if (parts[i] == "[title]") {
+            i++;
+            while (true) {
+              if (i >= parts.length) {
+                break;
+              }
+              if (parts[i][0] == "#" || parts[i][0] == "[") {
+                tempObject.tempTitle = tempString;
+                tempString = "";
+                break;
+              } else {
+                tempString += parts[i] + " ";
+                i++;
+              }
+            }
+          } else {
+            tempObject.tempTitle = "";
+          }
+          if (parts[i] == "[subtitle]") {
+            i++;
+            while (true) {
+              if (i >= parts.length) {
+                break;
+              }
+              if (parts[i][0] == "#" || parts[i][0] == "[") {
+                tempObject.tempSubtitle = tempString;
+                tempString = "";
+                break;
+              } else {
+                tempString += parts[i] + " ";
+                i++;
+              }
+            }
+          } else {
+            tempObject.tempSubtitle = "";
+          }
+          if (parts[i] == "[image]") {
+            i++;
+            tempObject.tempImage = parts[i];
+          } else {
+            tempObject.tempImage = "";
+          }
+        }
+
+        this.state.display.push(tempObject);
+      }
+    }
+
     return (
       <Container>
         <TitleView>View</TitleView>
         <button onClick={this.downloadFile}>Download</button>
         <ShowArea>
-          <iframe height="100%" width="100%" src="https://headline1.netlify.com/parser"></iframe>
+          {
+            this.state.display.map(
+              (disp, index) =>
+                disp.tempType == "Header" &&
+                <Header key={index} title={disp.tempTitle} subtitle={disp.tempSubtitle} image={disp.tempImage} /> ||
+                disp.tempType == "Subheader" &&
+                <Subheader key={index} title={disp.tempTitle} subtitle={disp.tempSubtitle} image={disp.tempImage} />
+            )
+          }
         </ShowArea>
       </Container>
     );

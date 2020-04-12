@@ -119,7 +119,7 @@ class Parser extends Component {
 
 
         return (
-            <div>
+            <div className="whole">
                 {
                     this.state.display.map(
                         (disp, index) => 
