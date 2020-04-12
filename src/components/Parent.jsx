@@ -1,6 +1,7 @@
 import React from "react";
 import { FlexRow } from "./shared/Shared";
 import { Component } from "react";
+import "./styles/Parent.css"
 import Show from "./Show";
 import Editor from "./Editor";
 import styled from "styled-components";
@@ -35,7 +36,7 @@ class Parent extends Component {
 
         <FlexRow>
           <SplitPane split="vertical" defaultSize={700}>
-            <div>
+            <div className = "editor-panel">
               <Editor value={this.state.hdText} onChange={this.onHDChange} />
             </div>
             <div>
