@@ -12,6 +12,7 @@ class Navbar extends Component {
                     <li className="navbar-item active"><Link to="/">Home</Link></li>
                     <li className="navbar-item"><Link to="/parser">Parser</Link></li>
                     <li className="navbar-item"><Link to="/editor">Editor</Link></li>
+                    <li className="navbar-item"><a href="https://github.com/neilmtan/headline/blob/master/README.md" target="_blank">Docs</a></li>
                 </ul>
             </div>
         );
@@ -24,8 +25,8 @@ class Header extends Component {
             <div className="header">
                 <div className="header-text-cont">
                     <div className="header-text">
-                        <h1 className="header-title">Make a website without code, in seconds</h1>
-                        <p className="header-subtitle">A new Markdown-like syntax that produces clean, responsive websites in HTML and CSS.</p>
+                        <h1 className="header-title">A website in seconds</h1>
+                        <p className="header-subtitle">Headline is new markup language for building responsive websites in minutes</p>
                     </div>
                 </div>
                 <div className="header-image-cont">
