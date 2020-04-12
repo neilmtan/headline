@@ -161,7 +161,7 @@ class Show extends Component {
 
     return (
       <Container>
-        <TitleNav>
+        <TitleNav className="mini-cont">
           <TitleView>View</TitleView>
           <button onClick={this.downloadFile}>Download</button>
         </TitleNav>
