@@ -34,7 +34,7 @@ class Editor extends Component {
     return (
       <Container>
         
-          <TitleView>Editor</TitleView>
+          <TitleView  className="mini-title">Editor</TitleView>
           <EditorArea
             placeholder="Start typing your Headline here!"
             value={this.props.value}

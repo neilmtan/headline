@@ -3,8 +3,20 @@
     width: 100%;
 }
 
-h1 {
+.title {
     background-color: #eeeeee;
     margin: 0;
-    padding: 0px;
+    padding: 20px;
 }
+
+.mini-cont {
+    background-color: #c7c7c7;
+    margin: 0;
+}
+
+.mini-title {
+    background-color: #c7c7c7;
+    margin: 0;
+    padding: 10px;
+}
+
