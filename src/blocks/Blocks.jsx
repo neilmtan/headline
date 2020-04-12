@@ -2,7 +2,7 @@ import React from "react";
 import './Landing.css';
 import { Component } from "react";
 
-class Navbar extends Component {
+export default class Navbar extends Component {
     render() {
         return (
             <div className="navbar">
@@ -14,7 +14,7 @@ class Navbar extends Component {
     }
 }
 
-class Header extends Component {
+export default class Header extends Component {
     render() {
         return (
             <div className="header">
@@ -32,7 +32,7 @@ class Header extends Component {
     }
 }
 
-class Subheader extends Component {
+export default class Subheader extends Component {
     render() {
         return (
             <div className="subheader">
@@ -58,4 +58,4 @@ class A extends Component {
     }
 }
 
-export default  {Navbar, Header, Subheader}
+// export default { Navbar, Header, Subheader };
