@@ -4,7 +4,11 @@ import { TitleView, Container } from "./shared/Shared";
 import "../Landing.css";
 import Header from "../blocks/Header.jsx";
 import Subheader from "../blocks/Subheader.jsx";
+<<<<<<< HEAD
+import Image from "../blocks/Image.jsx";
+=======
 import ReactTextareaAutocomplete from "@webscopeio/react-textarea-autocomplete";
+>>>>>>> a3003a06978cbc948bcb0a205afce08debffb3cf
 
 const ShowArea = styled.div`
   height: 100%;
@@ -66,6 +70,11 @@ class Show extends Component {
       tempTitle: "",
       tempSubtitle: "",
       tempImage: "",
+      tempLink1: "",
+      tempLink2: "",
+      tempLink3: "",
+      tempLink4: "",
+      tempLink5: "",
     };
     let tempString = "";
     let parts = this.props.value
@@ -171,6 +180,129 @@ class Show extends Component {
             tempObject.tempImage = "";
           }
         }
+        if (parts[i] == "Image") {
+          i++;
+          tempObject.tempType = "Image";
+          if (parts[i] == "[image]") {
+            i++;
+            tempObject.tempImage = parts[i];
+          } else {
+            tempObject.tempImage = "";
+          }
+          if (parts[i] == "[title]") {
+            i++;
+            while (true) {
+              if (i >= parts.length) {
+                break;
+              }
+              if (parts[i][0] == "#" || parts[i][0] == "[") {
+                tempObject.tempTitle = tempString;
+                tempString = "";
+                break;
+              } else {
+                tempString += parts[i] + " ";
+                i++;
+              }
+            }
+          } else {
+            tempObject.tempTitle = "";
+          }
+        }
+        if (parts[i] == "Navbar") {
+          i++;
+          tempObject.tempType = "Navbar";
+
+          if (parts[i] == "[link1]") {
+            i++;
+            while (true) {
+              if (i >= parts.length) {
+                break;
+              }
+              if (parts[i][0] == "#" || parts[i][0] == "[") {
+                tempObject.tempLink1 = tempString;
+                tempString = "";
+                break;
+              } else {
+                tempString += parts[i] + " ";
+                i++;
+              }
+            }
+          } else {
+            tempObject.tempLink1 = "";
+          }
+          if (parts[i] == "[link2]") {
+            i++;
+            while (true) {
+              if (i >= parts.length) {
+                break;
+              }
+              if (parts[i][0] == "#" || parts[i][0] == "[") {
+                tempObject.tempLink2 = tempString;
+                tempString = "";
+                break;
+              } else {
+                tempString += parts[i] + " ";
+                i++;
+              }
+            }
+          } else {
+            tempObject.tempLink2 = "";
+          }
+          if (parts[i] == "[link3]") {
+            i++;
+            while (true) {
+              if (i >= parts.length) {
+                break;
+              }
+              if (parts[i][0] == "#" || parts[i][0] == "[") {
+                tempObject.tempLink3 = tempString;
+                tempString = "";
+                break;
+              } else {
+                tempString += parts[i] + " ";
+                i++;
+              }
+            }
+          } else {
+            tempObject.tempLink3 = "";
+          }
+          if (parts[i] == "[link4]") {
+            i++;
+            while (true) {
+              if (i >= parts.length) {
+                break;
+              }
+              if (parts[i][0] == "#" || parts[i][0] == "[") {
+                tempObject.tempLink4 = tempString;
+                tempString = "";
+                break;
+              } else {
+                tempString += parts[i] + " ";
+                i++;
+              }
+            }
+          } else {
+            tempObject.tempLink4 = "";
+          }
+          if (parts[i] == "[link5]") {
+            i++;
+            while (true) {
+              if (i >= parts.length) {
+                break;
+              }
+              if (parts[i][0] == "#" || parts[i][0] == "[") {
+                tempObject.tempLink5 = tempString;
+                tempString = "";
+                break;
+              } else {
+                tempString += parts[i] + " ";
+                i++;
+              }
+            }
+          } else {
+            tempObject.tempLink5 = "";
+          }
+        }
 
         this.state.display.push(tempObject);
       }
@@ -210,7 +342,23 @@ class Show extends Component {
                   subtitle={disp.tempSubtitle}
                   image={disp.tempImage}
                 />
+              )) || (disp.tempType == "Navbar" && (
+                <Navbar
+                  key={index}  
+                  link1={disp.tempLink1}
+                  link2={disp.tempLink2}
+                  link3={disp.tempLink3}
+                  link4={disp.tempLink4}
+                  link5={disp.tempLink5}
+                  />
+              )) || (disp.tempType == "Image" && (
+                <Image
+                  key={index}  
+                  image={disp.tempImage}
+                  title={disp.tempTitle}
+                  />
               ))
+
           )}
         </ShowArea>
 
