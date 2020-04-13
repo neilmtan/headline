@@ -175,6 +175,27 @@ li:last-child {
     }
 }
 
+
+
+/*Image*/
+.image-cont {
+    margin: 10%;
+    display: flex;
+    justify-content: center;
+    align-content: space-around;
+    flex-wrap: wrap;
+}
+
+.image {
+    width: 60vw;
+}
+
+.image-title {
+    
+}
+
+
+
 /*Restyle components for portrait tablets and large phones*/
 @media only screen and (max-width: 768px) {
 

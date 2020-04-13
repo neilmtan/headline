@@ -6,9 +6,9 @@ html, body {
 
 .whole {
     margin: 0;
-    height: 100%;
-    width: 100%;
 }
+
+
 
 /*Navbar*/
 .navbar-cont {
@@ -48,16 +48,15 @@ li:first-child {
 
 li:last-child {
     padding-right: 15%;
+    float: right;
 }
-
-
 
 /*Header*/
 .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 5% 15%;
+    padding: 5% 10%;
     background-color: #eeeeee;
 }
 
@@ -99,7 +98,7 @@ li:last-child {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    padding: 5% 15%;
+    padding: 5% 10%;
     background-color: #ffffff;
 }
 
@@ -175,6 +174,27 @@ li:last-child {
         font-size: 2vw;
     }
 }
+
+
+
+/*Image*/
+.image-cont {
+    margin: 10%;
+    display: flex;
+    justify-content: center;
+    align-content: space-around;
+    flex-wrap: wrap;
+}
+
+.image {
+    width: 60vw;
+}
+
+.image-title {
+    
+}
+
+
 
 /*Restyle components for portrait tablets and large phones*/
 @media only screen and (max-width: 768px) {
