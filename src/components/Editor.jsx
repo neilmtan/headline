@@ -75,13 +75,13 @@ class Editor extends Component {
             trigger="#"
             data={BlockTypes}
             // renderSuggestion={this.renderUserSuggestion}
-          /> */}
-          {/* <Mention
+          />
+          <Mention
             trigger="["
             data={PropertyTypes}
             // renderSuggestion={this.renderTagSuggestion}
-          /> */}
-        {/* </MentionsInput> */}
+          />
+        </MentionsInput> */}
       </Container>
     );
   }
