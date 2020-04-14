@@ -135,6 +135,45 @@ li:last-child {
 
 
 
+/*Image*/
+.image-cont {
+    margin: 10%;
+    display: flex;
+    justify-content: center;
+    align-content: space-around;
+    flex-wrap: wrap;
+}
+
+.image {
+    width: 60vw;
+}
+
+
+
+/*Codeblock comparison*/
+.code-block {
+    white-space: pre-wrap; 
+    white-space: -moz-pre-wrap;
+    white-space: -pre-wrap;
+    white-space: -o-pre-wrap;
+    word-wrap: break-word;
+    height: 85%;
+    font-family: Inconsolata, Monaco, Consolas, "Courier New", Courier, monospace;
+    line-height: 1.5; border-radius: 0.3em; 
+}
+
+.code-block-cont {
+    width: 45%;
+}
+
+.whole-code-compare {
+    padding: 5% 10%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+     background-color: #aaaaaa
+}
+
 
 
 /*Restyle components for laptops and desktops*/
@@ -176,29 +215,15 @@ li:last-child {
 }
 
 
-
-/*Image*/
-.image-cont {
-    margin: 10%;
-    display: flex;
-    justify-content: center;
-    align-content: space-around;
-    flex-wrap: wrap;
-}
-
-.image {
-    width: 60vw;
-}
-
-.image-title {
-    
-}
-
-
-
 /*Restyle components for portrait tablets and large phones*/
 @media only screen and (max-width: 768px) {
+    .whole-code-compare {
+        display: block;
+    }
 
+    .code-block-cont {
+        width: 100%;
+    }
 }
 
 /*Restyle components for phones*/
@@ -250,7 +275,7 @@ li:last-child {
     }
 
     li a {
-        font-size: 5vw;
+        font-size: 4vw;
     }
 
 }
