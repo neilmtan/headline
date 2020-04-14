@@ -58,13 +58,13 @@ class Editor extends Component {
     return (
       <Container>
         <TitleView className="mini-title">Editor</TitleView>
-        {/* <EditorArea
+        <EditorArea
             placeholder="Start typing your Headline here!"
             value={this.props.value}
             onChange={this.handleChange}
-          /> */}
+          />
 
-        <MentionsInput
+        {/* <MentionsInput
           className="EditorArea"
           value={this.props.value}
           onChange={this.handleChange}
@@ -76,12 +76,12 @@ class Editor extends Component {
             data={BlockTypes}
             // renderSuggestion={this.renderUserSuggestion}
           />
-          {/* <Mention
+          <Mention
             trigger="["
             data={PropertyTypes}
             // renderSuggestion={this.renderTagSuggestion}
-          /> */}
-        </MentionsInput>
+          />
+        </MentionsInput> */}
       </Container>
     );
   }
