@@ -98,6 +98,9 @@ class Show extends Component {
               if (parts[i][0] == "#" || parts[i][0] == "[") {
                 tempObject.tempTitle = tempString;
                 tempString = "";
+                if(parts[i][0] == "#"){
+                  i--;
+                }
                 break;
               } else {
                 tempString += parts[i] + " ";
@@ -116,6 +119,9 @@ class Show extends Component {
               if (parts[i][0] == "#" || parts[i][0] == "[") {
                 tempObject.tempSubtitle = tempString;
                 tempString = "";
+                if(parts[i][0] == "#"){
+                  i--;
+                }
                 break;
               } else {
                 tempString += parts[i] + " ";
@@ -144,6 +150,9 @@ class Show extends Component {
               if (parts[i][0] == "#" || parts[i][0] == "[") {
                 tempObject.tempTitle = tempString;
                 tempString = "";
+                if(parts[i][0] == "#"){
+                  i--;
+                }
                 break;
               } else {
                 tempString += parts[i] + " ";
@@ -162,6 +171,9 @@ class Show extends Component {
               if (parts[i][0] == "#" || parts[i][0] == "[") {
                 tempObject.tempSubtitle = tempString;
                 tempString = "";
+                if(parts[i][0] == "#"){
+                  i--;
+                }
                 break;
               } else {
                 tempString += parts[i] + " ";
@@ -184,6 +196,10 @@ class Show extends Component {
           if (parts[i] == "[image]") {
             i++;
             tempObject.tempImage = parts[i];
+            i++;
+            if(parts[i] == "#"){
+              i--;
+            }
           } else {
             tempObject.tempImage = "";
           }
@@ -196,6 +212,9 @@ class Show extends Component {
               if (parts[i][0] == "#" || parts[i][0] == "[") {
                 tempObject.tempTitle = tempString;
                 tempString = "";
+                if(parts[i][0] == "#"){
+                  i--;
+                }
                 break;
               } else {
                 tempString += parts[i] + " ";
@@ -219,6 +238,9 @@ class Show extends Component {
               if (parts[i][0] == "#" || parts[i][0] == "[") {
                 tempObject.tempLink1 = tempString;
                 tempString = "";
+                if(parts[i][0] == "#"){
+                  i--;
+                }
                 break;
               } else {
                 tempString += parts[i] + " ";
@@ -237,6 +259,9 @@ class Show extends Component {
               if (parts[i][0] == "#" || parts[i][0] == "[") {
                 tempObject.tempLink2 = tempString;
                 tempString = "";
+                if(parts[i][0] == "#"){
+                  i--;
+                }
                 break;
               } else {
                 tempString += parts[i] + " ";
@@ -255,6 +280,9 @@ class Show extends Component {
               if (parts[i][0] == "#" || parts[i][0] == "[") {
                 tempObject.tempLink3 = tempString;
                 tempString = "";
+                if(parts[i][0] == "#"){
+                  i--;
+                }
                 break;
               } else {
                 tempString += parts[i] + " ";
@@ -273,6 +301,9 @@ class Show extends Component {
               if (parts[i][0] == "#" || parts[i][0] == "[") {
                 tempObject.tempLink4 = tempString;
                 tempString = "";
+                if(parts[i][0] == "#"){
+                  i--;
+                }
                 break;
               } else {
                 tempString += parts[i] + " ";
@@ -291,6 +322,9 @@ class Show extends Component {
               if (parts[i][0] == "#" || parts[i][0] == "[") {
                 tempObject.tempLink5 = tempString;
                 tempString = "";
+                if(parts[i][0] == "#"){
+                  i--;
+                }
                 break;
               } else {
                 tempString += parts[i] + " ";
