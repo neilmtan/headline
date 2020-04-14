@@ -4,11 +4,9 @@ import { TitleView, Container } from "./shared/Shared";
 import "../Landing.css";
 import Header from "../blocks/Header.jsx";
 import Subheader from "../blocks/Subheader.jsx";
-<<<<<<< HEAD
 import Image from "../blocks/Image.jsx";
-=======
+import Navbar from "../blocks/Navbar.jsx";
 import ReactTextareaAutocomplete from "@webscopeio/react-textarea-autocomplete";
->>>>>>> a3003a06978cbc948bcb0a205afce08debffb3cf
 
 const ShowArea = styled.div`
   height: 100%;
