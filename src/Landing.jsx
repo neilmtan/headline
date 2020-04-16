@@ -9,10 +9,39 @@ import Image from "./blocks/Image.jsx";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { docco } from "react-syntax-highlighter/dist/esm/styles/hljs";
 
-const codeString = '<div class="header"> <div class="header-text-cont"> <div class="header-text"> <h1 class="header-title">A website in seconds</h1> <p class="header-subtitle">Headline is new markup language for building responsive websites in minutes. </p> </div> </div> <div class="header-image-cont"><img class="header-image" src="./Headline_files/drawkit-server-woman-monochrome.png"></div> </div>';
-const headlineString = '# Header\n[title] Making a website has never been so easy\n[subtitle] Bruhhhhhhh';
+import firebase from "firebase/app";
+import "firebase/auth";
+import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyDleIedTSDKYnzb9THsSPRKI85fmVCWrAU",
+  authDomain: "headline-7ffd8.firebaseapp.com",
+  databaseURL: "https://headline-7ffd8.firebaseio.com",
+  projectId: "headline-7ffd8",
+  storageBucket: "headline-7ffd8.appspot.com",
+  messagingSenderId: "228188596809",
+  appId: "1:228188596809:web:0bab44fe40da141aa9ed98",
+  measurementId: "G-CYBSSJWVZ5",
+};
+
+// Instantiate a Firebase app.
+const firebaseApp = firebase.initializeApp(firebaseConfig);
+
+const codeString =
+  '<div class="header"> <div class="header-text-cont"> <div class="header-text"> <h1 class="header-title">A website in seconds</h1> <p class="header-subtitle">Headline is new markup language for building responsive websites in minutes. </p> </div> </div> <div class="header-image-cont"><img class="header-image" src="./Headline_files/drawkit-server-woman-monochrome.png"></div> </div>';
+const headlineString =
+  "# Header\n[title] Making a website has never been so easy\n[subtitle] Bruhhhhhhh";
 
 class Landing extends Component {
+  uiConfig = {
+    signInFlow: "popup",
+    signInOptions: [
+      window.firebase.auth.EmailAuthProvider.PROVIDER_ID,
+      window.firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+    ],
+    // Other config options...
+  };
+
   render() {
     return (
       <div className="whole">
@@ -26,6 +55,15 @@ class Landing extends Component {
           link5="Get Started!"
           link5to="/editor"
         />
+
+        <div>
+          <StyledFirebaseAuth
+            className={styles.firebaseUi}
+            uiConfig={this.uiConfig}
+            firebaseAuth={firebaseApp.auth()}
+          />
+        </div>
+
         <Header
           title="Making news in web development"
           subtitle="The new way to create clean, responsive websites."
@@ -38,7 +76,10 @@ class Landing extends Component {
         />
 
         <div>
-          <p>Focus less on fixing buggy code and more on writing great content for your website</p>
+          <p>
+            Focus less on fixing buggy code and more on writing great content
+            for your website
+          </p>
           <SyntaxHighlighter language="markdown" style={docco}>
             {codeString}
           </SyntaxHighlighter>
@@ -59,8 +100,9 @@ class Landing extends Component {
           subtitle="Download your site to your computer and instantly run it."
           image="https://lh3.googleusercontent.com/KbbofnvVJrQjiT2bhHQRvfa55DMExoKSQkhqATWkHVfGxJj319SHcMWdBmw94gRoE3NYyXc3Fyc5TCgdNMwNpHM22Bbz5Z-riZgBkevjpL94wgNevf7jmHC91CCuQb8_LdxhbgQ363IGon9WM-BK28s_Lu2YS2qnB0boCzI8FvGl40vkFP9rrw6XNC3M9fXPLeiLVKcybQldrAnO5zkoCNhJmK21vCkC8TmKvfoklnGx2fyRM0HVhJDJfKNKxjVEX8X4fTnKnhvuZr38I6AyWcpbGMezrtIQ0CRhC-y0JjQXHfJ3HcFmdqfofTgx2gpgxXCFqeZ8WRoJBm0z9PlrFIHcjPxxXfFLJM4gTS_sHkRPL8onrsL7aqjDBsd41slpBNe9SY5RP4U3UIXQ3JMPqoiCoZuO0GyjaEvM7Jj7GUEk5OJtlEBRU_aJeE1IVO3w8W4f6T18TWHvqknUGcmUSZsXWcBxY0XJqB-bxCVcNLObc8Q4gJfczSv46J7czSiVYYmSrEDICrtX9fuswwdpLltuZgwniE5iveW-GOmn3PStkUnMoayZO68ucOEmS1mCKMQAW0yuKtoztLmrCKt6mGnKukSK1oMDc4VDB_diSBdyKjStSpEA5RaxaS7e-dBvBNalQNAyqXxKYUmuDSdtg8FEl4oi0Qh3oJ57ZIWRfKhgeAWaYDdgne8Rip3X-pA8HF5nz076s4Exk8QyauwgorEGDeJtmv1MvBii8gNKAe5Zw5FW5gsG1w=s794-no"
         />
-        <Image
-          title="Ready to make your own? Start with our documentation and editor to get started."
+        <Subheader
+          title="Ready to make your own?"
+          subtitle="Start with our documentation and editor to get started."
           image="https://lh3.googleusercontent.com/Bk47plGyFnYozLKPOLkjBgSUbXDj9NbA2hUurSZFxThXns6ToNHlTyGYVQKuOT6XP1NH-r9eqXLKxTnqBAYiCnBmqIPAw4sRMS0Jl3wPhjiU2qO0R3bEhrrN0i4ExDLxk-jgY1QFAyezTbHdcEivckF9Hn01wcA579QFZnum6YHDIoApV5SU8aUhtr3NU4Jh9H9YTHZ7aIOaP6NEz2NHC1ER-PIdu8KsqxlccGxbxoAabyqbOIvzhM_kJ4X4X6H2cONLdhYiBN7w2acqW2WHmFyKBPTwvQYXSGU0E66snBRu4O7K7rYoSDf_lJbkmB7N_73Ri3WPX02lsrutji02UiG1PS_fxnkZ_3T6t_g8F4Haw6l2K66lEdBOPu2v2rVzNICDEG_GOHfBd8BeCZx6Kxp02aoHbe_J2y6sDRq0MEy8Emm9NHAgWSarclftuSmj2neENMb4A5yAeB6C2Zo3omkIuroVXlRW4_B5SFLLWriKWtmrbi66TnX1rTKURJIwB_n3OpzzcRV6c1oA1NCQPDRztiIglF7h1C-FT6gmY6lo7bmXy6DEJtOb32mApiHov2cklA-Xx7CTmsjbZWFjuts5QQA4pYUY9ia43a_ofhdu19X-kyMJyM9wrBAYyp4kWAchiCV1-6bGUE0H-hhqgyFpz9Tko9YEASkbBwF4ISk0jH1wge2N5LXy-1wm6XMhgO-5OYU1DybPnm9c1K9RP_rwLa94iVgLYSv7qx9EYVObNMAk4ehDyA=s794-no"
         />
       </div>
