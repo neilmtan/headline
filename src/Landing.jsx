@@ -9,7 +9,7 @@ import Image from "./blocks/Image.jsx";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { docco } from "react-syntax-highlighter/dist/esm/styles/hljs";
 
-import firebase from "firebase/app";
+import firebase from "firebase";
 import "firebase/auth";
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
 
@@ -27,17 +27,15 @@ const firebaseConfig = {
 // Instantiate a Firebase app.
 const firebaseApp = firebase.initializeApp(firebaseConfig);
 
-const codeString =
-  '<div class="header"> <div class="header-text-cont"> <div class="header-text"> <h1 class="header-title">A website in seconds</h1> <p class="header-subtitle">Headline is new markup language for building responsive websites in minutes. </p> </div> </div> <div class="header-image-cont"><img class="header-image" src="./Headline_files/drawkit-server-woman-monochrome.png"></div> </div>';
-const headlineString =
-  "# Header\n[title] Making a website has never been so easy\n[subtitle] Bruhhhhhhh";
+const codeString = '<div class="header">\n     <div class="header-text-cont">\n          <div class="header-text">\n               <h1 class="header-title">The old way to make a website</h1>\n               <p class="header-subtitle">A painfully slow method to creating websites. And this isn\'t even half the code you\'d need.</p>\n          </div>\n     </div>\n          <div class="header-image-cont">\n               <img class="header-image" src="./sademoji.png">\n          </div>\n</div>';
+const headlineString = '# Header\n[title] Making a website has never been so easy\n[subtitle] Bruhhhhhhh';
 
 class Landing extends Component {
   uiConfig = {
     signInFlow: "popup",
     signInOptions: [
-      window.firebase.auth.EmailAuthProvider.PROVIDER_ID,
-      window.firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+      firebase.auth.EmailAuthProvider.PROVIDER_ID,
+      firebase.auth.GoogleAuthProvider.PROVIDER_ID,
     ],
     // Other config options...
   };
@@ -58,7 +56,7 @@ class Landing extends Component {
 
         <div>
           <StyledFirebaseAuth
-            className={styles.firebaseUi}
+            // className={styles.firebaseUi}
             uiConfig={this.uiConfig}
             firebaseAuth={firebaseApp.auth()}
           />
@@ -75,19 +73,20 @@ class Landing extends Component {
           image="https://lh3.googleusercontent.com/hRDeU7Eh90OpC-kdUgWv3ESoi7U90UxO1IUMgAr9gdsXNBnPhP6enAY1FdjjJt3j9GWtKJy44E3VysMRA9eNEKPVlcDuQcYevaui-pZ2Vi7YG9hU1EmOqivbwWLKvXPByzaDknTvunoQqpB3iq4Kwp03GKPxhq72esuOY_aGzZtzoKPIb2THHhf57dNCONHXJyUpyah53usj98EYEZke91T907I09w53hcoFb43EuskMmdkYvBUm_Z6kioD3gLlX_a_rInyNDrVswuxEzLuBW3EiP9ydXtdd1VVLAf68RnxHtHiI3gUl6fnLorGo-m38ItLMCq7Zn0nrahky1o5p39PYuy8R0vn0z6HOmlK_TEfxPPwX1W-Z7lWjwW67DJmlbbwbrAjaKwW2ArvSBjHwL0bFtXY7sqmsvHV7J47TINy8Fw6AgU3-SU621D7yDQV2TnCzYbCB3MUbgoRtZjG1wjhEudAyN9RZ2vJdh06ncryVoA9a4mn_BAL7_9jMONsaNo_J-I9lmwIhlwsuJnYinbzCniQzJzEegakUGyoEs900vJRyRIqi4wX_RenOqDSi8SihH4ZiwuKDTAbmrWzlbGVCzJzRYcyjV2CiFi8k5fBUH4h-COdXPFAkEHTWUIOmOAqsIBMZHPwFHqXfILSw0Ks6wS5yp2FG7I0QFkqJLKNeTfx--9tXGdCAYahaKh3ciDSeGm4KzA58SFzZgj8oV8Bi_D1p_1xSqeYUzh-CORWZSoD20MhQOg=s794-no"
         />
 
-        <div>
-          <p>
-            Focus less on fixing buggy code and more on writing great content
-            for your website
-          </p>
-          <SyntaxHighlighter language="markdown" style={docco}>
-            {codeString}
-          </SyntaxHighlighter>
-          <p>Without Headline: 50 lines of code</p>
-
-          <SyntaxHighlighter language="markdown" style={docco}>
-            {headlineString}
-          </SyntaxHighlighter>
+        <div className="whole-code-compare">
+        <h1>Focus less on fixing buggy code and more on writing great content for your website.</h1>
+          <div className="code-block-cont">
+            <SyntaxHighlighter className="code-block" language="markdown" style={docco}>
+              {codeString}
+            </SyntaxHighlighter>
+            <p>Without Headline: 50 lines of code.</p>
+          </div>
+          <div className="code-block-cont">
+            <SyntaxHighlighter className="code-block" language="markdown" style={docco}>
+              {headlineString}
+            </SyntaxHighlighter>
+            <p>With Headline: 3 clean, understandable lines of code.</p>
+          </div>
         </div>
 
         <Subheader
