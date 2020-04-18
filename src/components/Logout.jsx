@@ -1,12 +1,25 @@
-import React from "react";
+import React, { Component } from "react";
 import firebase from "../firebase";
+import { withRouter } from 'react-router-dom';
 
-const logOutUser = () => {
-  firebase.auth().signOut();
-};
+class LogOut extends Component {
+  constructor(props) {
+    super(props);
+    this.logOutUser = this.logOutUser.bind(this);
+  }
 
-const LogOut = () => {
-  return <button onClick={logOutUser}>Log Out</button>;
-};
+  logOutUser() {
+    console.log("user has been logged out!");
+    firebase
+      .auth()
+      .signOut()
+      .then(() => {
+        this.props.history.push("/");
+      });
+  }
+  render() {
+    return <button onClick={this.logOutUser}>Log Out</button>;
+  }
+}
 
-export default LogOut;
+export default withRouter(LogOut) ;

@@ -25,6 +25,8 @@ const firebaseConfig = {
 //   // Other config options...
 // };
 
+var provider = new firebase.auth.GoogleAuthProvider();
+
 class Register extends Component {
   constructor(props) {
     super(props);
@@ -35,12 +37,25 @@ class Register extends Component {
     };
   }
 
+  componentDidMount() {
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        // User signed in, you can get redirect result here if needed.
+        console.log(user);
+        this.props.history.push("/dashboard");
+        // ....
+      } else {
+        // Show sign in screen with button above.
+      }
+    });
+  }
+
   handleInputChange = (event) => {
     this.setState({ [event.target.name]: event.target.value });
   };
 
   handleSubmit = (event) => {
-      console.log("submitted");
+    console.log("submitted");
     event.preventDefault();
     firebase
       .auth()
@@ -53,20 +68,37 @@ class Register extends Component {
       });
   };
 
+  handleGoogle = (event) => {
+    firebase
+      .auth()
+      .signInWithRedirect(provider)
+      .then((result) => {
+        console.log("big google fan aight");
+        // // this.props.history.push("/dashboard");
+        // This gives you a Google Access Token. You can use it to access the Google API.
+        var token = result.credential.accessToken;
+        // The signed-in user info.
+        var user = result.user;
+        // ...
+      })
+      .catch((error) => {
+        this.setState({ error: error });
+      });
+  };
+
   render() {
     return (
       <div>
         <h1>Register</h1>
-        {this.state.error ? (
-         <p>{this.state.error.message}</p>
-       ) : null}
+        {this.state.error ? <p>{this.state.error.message}</p> : null}
         <form onSubmit={this.handleSubmit}>
           <input
             type="text"
             name="email"
             placeholder="Email"
             value={this.state.email}
-            onChange={this.handleInputChange}/>
+            onChange={this.handleInputChange}
+          />
           <input
             type="password"
             name="password"
@@ -76,6 +108,8 @@ class Register extends Component {
           />
           <button>Register</button>
         </form>
+
+        <button onClick={this.handleGoogle}>Register with Google</button>
       </div>
     );
   }
