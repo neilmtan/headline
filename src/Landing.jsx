@@ -9,37 +9,10 @@ import Image from "./blocks/Image.jsx";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { docco } from "react-syntax-highlighter/dist/esm/styles/hljs";
 
-import firebase from "firebase";
-import "firebase/auth";
-import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
-
-const firebaseConfig = {
-  apiKey: "AIzaSyDleIedTSDKYnzb9THsSPRKI85fmVCWrAU",
-  authDomain: "headline-7ffd8.firebaseapp.com",
-  databaseURL: "https://headline-7ffd8.firebaseio.com",
-  projectId: "headline-7ffd8",
-  storageBucket: "headline-7ffd8.appspot.com",
-  messagingSenderId: "228188596809",
-  appId: "1:228188596809:web:0bab44fe40da141aa9ed98",
-  measurementId: "G-CYBSSJWVZ5",
-};
-
-// Instantiate a Firebase app.
-const firebaseApp = firebase.initializeApp(firebaseConfig);
-
 const codeString = '<div class="header">\n     <div class="header-text-cont">\n          <div class="header-text">\n               <h1 class="header-title">The old way to make a website</h1>\n               <p class="header-subtitle">A painfully slow method to creating websites. And this isn\'t even half the code you\'d need.</p>\n          </div>\n     </div>\n          <div class="header-image-cont">\n               <img class="header-image" src="./sademoji.png">\n          </div>\n</div>';
 const headlineString = '# Header\n[title] Making a website has never been so easy\n[subtitle] Bruhhhhhhh';
 
 class Landing extends Component {
-  uiConfig = {
-    signInFlow: "popup",
-    signInOptions: [
-      firebase.auth.EmailAuthProvider.PROVIDER_ID,
-      firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-    ],
-    // Other config options...
-  };
-
   render() {
     return (
       <div className="whole">
@@ -50,20 +23,20 @@ class Landing extends Component {
           link2to="/"
           link3="Docs"
           link3to="/"
-          link5="Get Started!"
-          link5to="/editor"
+          link5="Create an Account"
+          link5to="/register"
         />
 
-        <div>
+        {/* <div>
           <StyledFirebaseAuth
             // className={styles.firebaseUi}
             uiConfig={this.uiConfig}
             firebaseAuth={firebaseApp.auth()}
           />
-        </div>
+        </div> */}
 
         <Header
-          title="Making news in web development"
+          title="Websites for everyone"
           subtitle="The new way to create clean, responsive websites."
           image="https://lh3.googleusercontent.com/BGkhhqN1Kj84WoZeDmHG3cSmkjZDi5I2y73U_E708i2Sps_WOLr56X5YASXW4PjHpCXy5ToGW5TK0fvqexy-jS5PLDvEEK_2dL5cPNxApAsgS5-af8oShNXyiegbT2dQSdXGt_f9cpsrVR_8WwqQSGxUczmf-ITR-rwbF-zD_zUJLmCYItekri7cl1r-NWgGsthxn0ni3QjmutvTii_fqbn4Ls2_4tBUpcZq7pTgr8TZi_7E3LPVA2-zjglXulgvyO6gYsAAjOJ1b4lL6SrcFOY7Ms5Syfa7-lZ-jL5VJa6T6XcSDOrfSBINCM-QjW969gh63Wjlx7_fI454o7UtpxUtnryRz9QvZ7SE76HXfNFlQi2Y4Zp5qVawptixVogyqfTSyaeuM37JY10RtPMHJ2rzSJR2u0UWgT7aaGHj4vZZNKSV3hRhd9Ombnmkd49bBQe8jqmMRa6aRgUeb1zFapSjv35nPOsZICXeFtXCVj-pn7VQY47GJg7EbTd9y-z_uMFVg_rd8Z8Y_KaFLbQdvUGbM1tiv5JC6fRqvdWFS6FDt5T22g2dqXr2DqLzRkSs32YXjZPqpNU_V4Xz8397rsNpozgs_uI9p--mWPeidNTPrQc3TS1qmzIbwlKiAE-Six0CeyJjHfg4t1f7jFhR2NHdIJuOQqq2jhbLMMhJZSbqv206tkCasow_3Dan=s867-no   "
         />
