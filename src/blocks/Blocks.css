@@ -97,6 +97,7 @@ li:first-child {
     align-items: center;
     padding: 5% 10%;
     background-color: #ffffff;
+    height: 40vh;
 }
 
 .subheader-text-cont {
