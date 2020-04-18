@@ -1,0 +1,54 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+}
+
+.whole-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.top-section {
+    background-color: white;
+}
+
+.register-header {
+    padding: 10px;
+    text-align: center;
+    margin: 0;
+}
+
+.register-space {
+    height: 400px;
+    width: 300px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    background-color: gray;
+}
+
+input {
+    margin: 10px;
+    padding: 10px;
+}
+
+button {
+    padding: 10px;
+    margin: 10px;
+    border-style: none;
+}
+
+.error {
+    margin: 0;
+    color: red;
+    padding: 10px;
+}
+
+.google {
+    background: url("https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/1200px-Google_%22G%22_Logo.svg.png");
+}

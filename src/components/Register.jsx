@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import firebase from "../firebase";
+import "./styles/Register.css"
 // import "firebase/auth";
 
 const firebaseConfig = {
@@ -88,9 +89,12 @@ class Register extends Component {
 
   render() {
     return (
-      <div>
-        <h1>Register</h1>
-        {this.state.error ? <p>{this.state.error.message}</p> : null}
+      <div className="whole-form">
+        <div className="register-space">
+          <div className="top-section">
+        <h1 className="register-header">Register</h1>
+        {this.state.error ? <p className="error">{this.state.error.message}</p> : null}
+        </div>
         <form onSubmit={this.handleSubmit}>
           <input
             type="text"
@@ -108,8 +112,9 @@ class Register extends Component {
           />
           <button>Register</button>
         </form>
-
+        <h2 className="register-header">...or login with</h2>
         <button onClick={this.handleGoogle}>Register with Google</button>
+        </div>
       </div>
     );
   }
