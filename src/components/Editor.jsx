@@ -59,29 +59,10 @@ class Editor extends Component {
       <Container>
         <TitleView className="mini-title">Editor</TitleView>
         <EditorArea
-            placeholder="Start typing your Headline here!"
-            value={this.props.value}
-            onChange={this.handleChange}
-          />
-
-        {/* <MentionsInput
-          className="EditorArea"
+          placeholder="Start typing your Headline here!"
           value={this.props.value}
           onChange={this.handleChange}
-          placeholder="Start typing your Headline here!"        
-          allowSpaceInQuery="true"
-        >
-          <Mention
-            trigger="#"
-            data={BlockTypes}
-            // renderSuggestion={this.renderUserSuggestion}
-          />
-          <Mention
-            trigger="["
-            data={PropertyTypes}
-            // renderSuggestion={this.renderTagSuggestion}
-          />
-        </MentionsInput> */}
+        />
       </Container>
     );
   }

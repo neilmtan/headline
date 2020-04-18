@@ -7,10 +7,18 @@ import Header from "./blocks/Header.jsx";
 import Subheader from "./blocks/Subheader.jsx";
 import Image from "./blocks/Image.jsx";
 import SyntaxHighlighter from "react-syntax-highlighter";
-import { docco } from "react-syntax-highlighter/dist/esm/styles/hljs";
+import { obsidian, grayscale } from "react-syntax-highlighter/dist/esm/styles/hljs";
 
-const codeString = '<div class="header">\n     <div class="header-text-cont">\n          <div class="header-text">\n               <h1 class="header-title">The old way to make a website</h1>\n               <p class="header-subtitle">A painfully slow method to creating websites. And this isn\'t even half the code you\'d need.</p>\n          </div>\n     </div>\n          <div class="header-image-cont">\n               <img class="header-image" src="./sademoji.png">\n          </div>\n</div>';
-const headlineString = '# Header\n[title] Making a website has never been so easy\n[subtitle] Bruhhhhhhh';
+const styleString1 = "<!DOCTYPE html>\n  <html>\n    <head>\n      <style>\n        .header {\n          display: flex;\n          justify-content: space-between;\n          align-items: center; \n          padding: 5% 10%;\n          background-color: #eeeeee;\n        }\n\n"
+const styleString2 = "        .header-text-cont {\n          flex-grow: 1;\n          display: flex;\n          justify-content: space-evenly;\n        }\n\n";
+const styleString3 = "        .header-image-cont {\n          flex-grow: 1;\n          display: flex;\n          justify-content: space-evenly;\n          padding: 0 10vh;\n        }\n\n"
+const styleString4 = "        .header-image {\n          width: 30vw;\n        }\n\n        .header-text {\n           padding: 0 10vh;\n        }\n\n        .header-title {\n          font-size: 3vw;\n          margin: 0;\n        }\n\n";
+const styleString5 = "        .header-subtitle {\n          font-size: 1vw;\n          line-height: 175%;\n        }\n      </style>\n    </head>\n\n";
+
+var codeString = '    <body>\n      <div class="header">\n       <div class="header-text-cont">\n          <div class="header-text">\n               <h1 class="header-title">The old way to make a website</h1>\n               <p class="header-subtitle">A painfully slow method to creating websites. And this isn\'t even half the code you\'d need.</p>\n          </div>\n      </div>\n          <div class="header-image-cont">\n               <img class="header-image" src="./sademoji.png">\n          </div>\n    </div>\n  </body>\n</html>';
+codeString = styleString1 + styleString2 + styleString3 + styleString4 + styleString5 + codeString;
+
+const headlineString = '# Header\n[title] Making a website has never been so easy\n[subtitle] A fully responsive component in 20 seconds.\n[image] headlineLogo.png';
 
 class Landing extends Component {
   render() {
@@ -19,10 +27,10 @@ class Landing extends Component {
         <Navbar
           link1="Headline"
           link1to="/"
-          link2="Home"
+          link2="Docs"
           link2to="/"
-          link3="Docs"
-          link3to="/"
+          link4="Login"
+          link4to="/login"
           link5="Create an Account"
           link5to="/register"
         />
@@ -47,18 +55,18 @@ class Landing extends Component {
         />
 
         <div className="whole-code-compare">
-        <h1>Focus less on fixing buggy code and more on writing great content for your website.</h1>
+        <h1>No more code, just great content for your website.</h1>
           <div className="code-block-cont">
-            <SyntaxHighlighter className="code-block" language="markdown" style={docco}>
+            <SyntaxHighlighter className="code-block" language="scss" style={obsidian} showLineNumbers={true}>
               {codeString}
             </SyntaxHighlighter>
-            <p>Without Headline: 50 lines of code.</p>
+            <h3>Without Headline: 50 lines of code.</h3>
           </div>
           <div className="code-block-cont">
-            <SyntaxHighlighter className="code-block" language="markdown" style={docco}>
+            <SyntaxHighlighter className="code-block" language="markdown" style={grayscale}>
               {headlineString}
             </SyntaxHighlighter>
-            <p>With Headline: 3 clean, understandable lines of code.</p>
+            <h3>With Headline: As easy as writing a text</h3>
           </div>
         </div>
 

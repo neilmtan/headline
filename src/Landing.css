@@ -157,7 +157,7 @@ li:last-child {
     white-space: -pre-wrap;
     white-space: -o-pre-wrap;
     word-wrap: break-word;
-    height: 85%;
+    height: 30vh;
     font-family: Inconsolata, Monaco, Consolas, "Courier New", Courier, monospace;
     line-height: 1.5; border-radius: 0.3em; 
 }

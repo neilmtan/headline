@@ -10,7 +10,7 @@ import ReactTextareaAutocomplete from "@webscopeio/react-textarea-autocomplete";
 
 const ShowArea = styled.div`
   height: 100%;
-  width: 100%;
+  width: 90%;
   border-radius: 3px;
   border: none;
   box-shadow: 1px 1px 3px #999;

@@ -14,7 +14,7 @@ const firebaseConfig = {
   measurementId: "G-CYBSSJWVZ5",
 };
 
-class Landing extends Component {
+class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -70,4 +70,4 @@ class Landing extends Component {
   }
 }
 
-export default Landing;
+export default Login;
