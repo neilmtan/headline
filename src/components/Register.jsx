@@ -113,7 +113,7 @@ class Register extends Component {
           <button>Register</button>
         </form>
         <h2 className="register-header">...or login with</h2>
-        <button onClick={this.handleGoogle}>Register with Google</button>
+        <button className="google" onClick={this.handleGoogle}>Register with Google</button>
         </div>
       </div>
     );

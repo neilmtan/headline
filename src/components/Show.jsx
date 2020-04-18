@@ -68,11 +68,9 @@ class Show extends Component {
       tempTitle: "",
       tempSubtitle: "",
       tempImage: "",
-      tempLink1: "",
-      tempLink2: "",
-      tempLink3: "",
-      tempLink4: "",
-      tempLink5: "",
+      tempLinks: [""],
+      tempLinksTo: [],
+      tempFloat: ""
     };
     let tempString = "";
     let parts = this.props.value
@@ -82,6 +80,8 @@ class Show extends Component {
 
     for (let i = 0; i < parts.length; i++) {
       tempObject = {};
+      tempObject.tempLinks = [];
+      tempObject.tempLinksTo = [];
       tempString = "";
       if (parts[i] == "#") {
         i++;
@@ -228,15 +228,15 @@ class Show extends Component {
         if (parts[i] == "Navbar") {
           i++;
           tempObject.tempType = "Navbar";
-
-          if (parts[i] == "[link1]") {
-            i++;
+            while (true) {
+              if(parts[i] == "[link]"){
+                i++;
             while (true) {
               if (i >= parts.length) {
                 break;
               }
               if (parts[i][0] == "#" || parts[i][0] == "[") {
-                tempObject.tempLink1 = tempString;
+                tempObject.tempLinks.push(tempString);
                 tempString = "";
                 if(parts[i][0] == "#"){
                   i--;
@@ -247,96 +247,18 @@ class Show extends Component {
                 i++;
               }
             }
-          } else {
-            tempObject.tempLink1 = "";
-          }
-          if (parts[i] == "[link2]") {
-            i++;
-            while (true) {
-              if (i >= parts.length) {
-                break;
-              }
-              if (parts[i][0] == "#" || parts[i][0] == "[") {
-                tempObject.tempLink2 = tempString;
-                tempString = "";
-                if(parts[i][0] == "#"){
-                  i--;
-                }
-                break;
-              } else {
-                tempString += parts[i] + " ";
+              } else if(parts[i] == "[linkto]"){
                 i++;
-              }
-            }
-          } else {
-            tempObject.tempLink2 = "";
-          }
-          if (parts[i] == "[link3]") {
-            i++;
-            while (true) {
-              if (i >= parts.length) {
-                break;
-              }
-              if (parts[i][0] == "#" || parts[i][0] == "[") {
-                tempObject.tempLink3 = tempString;
-                tempString = "";
-                if(parts[i][0] == "#"){
-                  i--;
-                }
-                break;
+                tempObject.tempLinksTo.push(parts[i]);
               } else {
-                tempString += parts[i] + " ";
-                i++;
-              }
-            }
-          } else {
-            tempObject.tempLink3 = "";
-          }
-          if (parts[i] == "[link4]") {
-            i++;
-            while (true) {
-              if (i >= parts.length) {
                 break;
               }
-              if (parts[i][0] == "#" || parts[i][0] == "[") {
-                tempObject.tempLink4 = tempString;
-                tempString = "";
-                if(parts[i][0] == "#"){
-                  i--;
-                }
-                break;
-              } else {
-                tempString += parts[i] + " ";
-                i++;
               }
-            }
-          } else {
-            tempObject.tempLink4 = "";
-          }
-          if (parts[i] == "[link5]") {
-            i++;
-            while (true) {
-              if (i >= parts.length) {
-                break;
-              }
-              if (parts[i][0] == "#" || parts[i][0] == "[") {
-                tempObject.tempLink5 = tempString;
-                tempString = "";
-                if(parts[i][0] == "#"){
-                  i--;
-                }
-                break;
-              } else {
-                tempString += parts[i] + " ";
-                i++;
-              }
-            }
-          } else {
-            tempObject.tempLink5 = "";
-          }
+          
         }
 
         this.state.display.push(tempObject);
+        console.log(this.state.display);
       }
     }
 
@@ -375,14 +297,15 @@ class Show extends Component {
                   image={disp.tempImage}
                 />
               )) || (disp.tempType == "Navbar" && (
-                <Navbar
-                  key={index}  
-                  link1={disp.tempLink1}
-                  link2={disp.tempLink2}
-                  link3={disp.tempLink3}
-                  link4={disp.tempLink4}
-                  link5={disp.tempLink5}
-                  />
+                <div className="navbar">
+                  <ul className="navbar-cont">
+                {(disp.tempLinks.map(
+                  (connect, index) =>
+                <Navbar key={index} link={connect}
+                  />)
+                )}
+                  </ul>
+                  </div>
               )) || (disp.tempType == "Image" && (
                 <Image
                   key={index}  

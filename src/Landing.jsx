@@ -16,17 +16,14 @@ class Landing extends Component {
   render() {
     return (
       <div className="whole">
-        <Navbar
-          link1="Headline"
-          link1to="/"
-          link2="Home"
-          link2to="/"
-          link3="Docs"
-          link3to="/"
-          link5="Create an Account"
-          link5to="/register"
-        />
-
+        <div className="navbar">
+          <ul className="navbar-cont">
+        <Navbar link="Headline" linkto="/"/>
+        <Navbar link="Home" linkto="/"/>
+        <Navbar link="Docs" linkto="/"/>
+        <Navbar link="Create an Account" linkto="/register"/>
+        </ul>
+      </div>
         {/* <div>
           <StyledFirebaseAuth
             // className={styles.firebaseUi}
