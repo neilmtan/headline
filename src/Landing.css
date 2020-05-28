@@ -171,6 +171,11 @@ li:first-child {
      background-color: #aaaaaa
 }
 
+.compare-description {
+    text-align: center;
+}
+
+
 
 
 /*Restyle components for laptops and desktops*/

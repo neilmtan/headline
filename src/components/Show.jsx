@@ -10,7 +10,7 @@ import ReactTextareaAutocomplete from "@webscopeio/react-textarea-autocomplete";
 
 const ShowArea = styled.div`
   height: 100%;
-  width: 90%;
+  width: 100%;
   border-radius: 3px;
   border: none;
   box-shadow: 1px 1px 3px #999;
@@ -25,6 +25,10 @@ const ShowArea = styled.div`
 const TitleNav = styled.div`
   display: flex;
   flex-direction: row;
+`;
+
+const ScrollDiv = styled.div`
+  width: 1200px;
 `;
 
 class Show extends Component {
@@ -279,6 +283,7 @@ class Show extends Component {
           <div id="styling">{styleGuy}</div>
         </TitleNav>
         <ShowArea className="show-area" id="content">
+          <ScrollDiv>
           {this.state.display.map(
             (disp, index) =>
               (disp.tempType == "Header" && (
@@ -315,6 +320,7 @@ class Show extends Component {
               ))
 
           )}
+          </ScrollDiv>
         </ShowArea>
 
         

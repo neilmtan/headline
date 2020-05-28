@@ -29,7 +29,7 @@ class Landing extends Component {
         <Navbar link="Headline" linkto="/"/>
         <Navbar link="Home" linkto="/"/>
         <Navbar link="Docs" linkto="/"/>
-        <Navbar link="Create an Account" linkto="/register"/>
+        <Navbar link="Editor" linkto="/editor"/>
         </ul>
       </div>
         {/* <div>
@@ -57,13 +57,13 @@ class Landing extends Component {
             <SyntaxHighlighter className="code-block" language="scss" style={obsidian} showLineNumbers={true}>
               {codeString}
             </SyntaxHighlighter>
-            <h3>Without Headline: 50 lines of code.</h3>
+            <p className="compare-description">Without Headline: 50 lines of code.</p>
           </div>
           <div className="code-block-cont">
             <SyntaxHighlighter className="code-block" language="markdown" style={grayscale}>
               {headlineString}
             </SyntaxHighlighter>
-            <h3>With Headline: As easy as writing a text</h3>
+            <p className="compare-description">With Headline: As easy as writing a text</p>
           </div>
         </div>
 
